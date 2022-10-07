@@ -666,7 +666,7 @@ bool v3_equals(float *a, float *b, float tolerance)
 }
 
 void test_floating_vals(float *expectedVal, float *actualVal){
-	if(!v3_equals(expectedVal, actualVal, 0.001)){
+	if(!v3_equals(expectedVal, actualVal, 0.01)){
 		printf("#### TEST FAILED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
 		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
@@ -680,7 +680,7 @@ void test_floating_vals(float *expectedVal, float *actualVal){
 }
 
 void test_single_value(float *expectedVal, float *actualVal, int index){
-	if(! (fabs(expectedVal[0] - actualVal[0]) <= 0.001)){
+	if(! (fabs(expectedVal[0] - actualVal[0]) <= 0.01)){
 		printf("#### TEST FAILED\n");
 		printf("\t Expected Val: %lf\n", expectedVal[index]);
 		printf("\t  Actual Val: %lf\n\n", actualVal[index]);

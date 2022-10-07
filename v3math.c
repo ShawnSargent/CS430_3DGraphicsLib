@@ -89,8 +89,15 @@ void v3_scale(float *dst, float s)
 // Function Purpose: Calculate angle between a and b
 float v3_angle(float *a, float *b)
 {
-	float angleBetween = 0.0;
-
+    float dotProduct = v3_dot_product(a,b);
+    float MagProduct  = v3_length(a) * v3_length(b);
+    float radianConvert = 180 / 3.141592;
+    float angleBetween = 0;
+    if(MagProduct > 0){
+	    angleBetween = acos(dotProduct / MagProduct) * radianConvert;
+    }else{
+        angleBetween = 0;
+    }
     return angleBetween; //stub
 }
 
@@ -106,7 +113,11 @@ float v3_angle_quick(float *a, float *b)
 
 	float length2 = v3_length(b);
 
+    float radianConvert = 180 / 3.141592;
+
 	quickAngle = dotProductResult / (length1 * length2);
+
+    quickAngle = quickAngle * radianConvert;
 
     return cos(quickAngle);
 }
