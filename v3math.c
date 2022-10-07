@@ -98,7 +98,17 @@ float v3_angle(float *a, float *b)
 // Function Purpose: Calculate angle between a and b w/o cos^-1
 float v3_angle_quick(float *a, float *b)
 {
-    return 0.0; //stub
+	float quickAngle = 0.0;
+
+	float dotProductResult = v3_dot_product(a,b);
+
+	float length1 = v3_length(a);
+
+	float length2 = v3_length(b);
+
+	quickAngle = dotProductResult / (length1 * length2);
+
+    return quickAngle;
 }
 
 // Function Name: v3_reflect
