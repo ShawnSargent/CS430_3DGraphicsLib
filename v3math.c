@@ -108,7 +108,7 @@ float v3_angle_quick(float *a, float *b)
 
 	quickAngle = dotProductResult / (length1 * length2);
 
-    return quickAngle;
+    return cos(quickAngle);
 }
 
 // Function Name: v3_reflect
