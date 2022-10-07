@@ -35,7 +35,7 @@ int main()
 	 
 	expectedVal[0] = -4.4;
 	expectedVal[1] = -4.2;
-	expectedVal[2] = -11.6;
+	expectedVal[2] = -11.2;
 
 	printf("Testing v3_from_points with input1 = positive, input 2 = negative\n");
 	v3_from_points(actualVal, pointOne, pointTwo);
@@ -50,9 +50,9 @@ int main()
 	pointTwo[1] = 2.1;
 	pointTwo[2] = 5.1;
 	 
-	expectedVal[0] = -3.4;
-	expectedVal[1] = -6.9;
-	expectedVal[2] = 3.1;
+	expectedVal[0] = 10.0;
+	expectedVal[1] = 11.1;
+	expectedVal[2] = 7.1;
 
 	printf("Testing v3_from_points with input1 = positive, input 2 = negative\n");
 	v3_from_points(actualVal, pointOne, pointTwo);
@@ -69,7 +69,7 @@ int main()
 	 
 	expectedVal[0] = 0.0;
 	expectedVal[1] = 0.0;
-	expectedVal[2] = -0.4;
+	expectedVal[2] = 0.0;
 
 	printf("Testing v3_from_points with both negative input\n");
 	v3_from_points(actualVal, pointOne, pointTwo);
@@ -310,12 +310,12 @@ int main()
 	pointTwo[1] = -2.2;
 	pointTwo[2] = -6.6;
 	 
-	expectedVal[0] = -21.76;
+	expectedVal[0] = -21.78;
 	expectedVal[1] = 25.41;
 	expectedVal[2] = 2.42;
 
-	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
-	v3_add(actualVal, pointOne, pointTwo);
+	printf("Testing v3_cross_product with input1 = positive, input 2 = negative\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
 	test_floating_vals(expectedVal, actualVal);
 	// Testing Cross with one negative one positive
 	pointOne[0] = -5.5;
@@ -326,12 +326,12 @@ int main()
 	pointTwo[1] = 2.2;
 	pointTwo[2] = 6.6;
 	 
-	expectedVal[0] = -21.76;
+	expectedVal[0] = -21.78;
 	expectedVal[1] = 22.11;
 	expectedVal[2] = 6.82;
 
-	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
-	v3_add(actualVal, pointOne, pointTwo);
+	printf("Testing v3_cross_product with input1 = positive, input 2 = negative\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
 	test_floating_vals(expectedVal, actualVal);
 	// Testing Cross with negative values
 	pointOne[0] = -5.5;
@@ -346,8 +346,8 @@ int main()
 	expectedVal[1] = -32.67;
 	expectedVal[2] = 7.26;
 
-	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
-	v3_add(actualVal, pointOne, pointTwo);
+	printf("Testing v3_cross_product with input1 = positive, input 2 = negative\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
 	test_floating_vals(expectedVal, actualVal);
 
 
@@ -407,11 +407,18 @@ int main()
 	v3_scale(actualVal, 0.0);
 	test_floating_vals(expectedVal, actualVal);
 
-	
+
 	printf( "===============================\n" );
 	printf( "Testing Angle and quick Angle\n");
 	printf( "===============================\n" );
 
+	// testing Angle positive values
+	// testing Angle negative values
+	// testing Angle zero values
+
+	// testing quick Angle positive values
+	// testing quick Angle negative values
+	// testing quick Angle zero values
 
 	printf( "===============================\n" );
 	printf( "Testing Reflect, Length, and Normalize\n");
