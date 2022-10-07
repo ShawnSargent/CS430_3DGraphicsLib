@@ -7,6 +7,8 @@ bool v3_equals(float *a, float *b, float tolerance);
 
 void test_floating_vals(float *expectedVal, float *actualVal);
 
+void test_single_value(float *expectedVal, float *actualVal, int index);
+
 
 int main()
 {
@@ -238,7 +240,7 @@ int main()
 
 	printf("Testing v3_dot_product with with positive inputs\n");
 	actualVal[0] = v3_dot_product(pointOne, pointTwo);
-	test_floating_vals(expectedVal, actualVal);
+	test_single_value(expectedVal, actualVal, 0);
 
 	// Testing Dot with one positive one negative
 	pointOne[0] = 1.1;
@@ -253,7 +255,7 @@ int main()
 
 	printf("Testing v3_dot_product input1 = positive, input 2 = negative\n");
 	actualVal[0] = v3_dot_product(pointOne, pointTwo);
-	test_floating_vals(expectedVal, actualVal);
+	test_single_value(expectedVal, actualVal, 0);
 
 	// Testing Dot with one negative one positive
 	pointOne[0] = -5.5;
@@ -268,7 +270,7 @@ int main()
 
 	printf("Testing v3_dot_product input1 = positive, input 2 = negative\n");
 	actualVal[0] = v3_dot_product(pointOne, pointTwo);
-	test_floating_vals(expectedVal, actualVal);
+	test_single_value(expectedVal, actualVal, 0);
 
 	// Testing Dot with negative values
 	pointOne[0] = -1.1;
@@ -283,7 +285,7 @@ int main()
 
 	printf("Testing v3_dot_product input1 = positive, input 2 = negative\n");
 	actualVal[0] = v3_dot_product(pointOne, pointTwo);
-	test_floating_vals(expectedVal, actualVal);
+	test_single_value(expectedVal, actualVal, 0);
 
 	// Testing Cross with positive values
 	pointOne[0] = 5.5;
@@ -412,19 +414,233 @@ int main()
 	printf( "Testing Angle and quick Angle\n");
 	printf( "===============================\n" );
 
-	// testing Angle positive values
-	// testing Angle negative values
-	// testing Angle zero values
+	// testing Angle positive value
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
 
-	// testing quick Angle positive values
-	// testing quick Angle negative values
-	// testing quick Angle zero values
+	pointTwo[0] = 2.2;
+	pointTwo[1] = 1.3;
+	pointTwo[2] = 8.8;
+	 
+	expectedVal[0] = 48.89;
+
+	printf("Testing v3_angle with postive Vectors\n");
+	actualVal[0] = v3_angle(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
+	
+	// testing Angle negative values
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[2] = -3.3;
+
+	pointTwo[0] = -2.2;
+	pointTwo[1] = -4.4;
+	pointTwo[2] = -6.6;
+	 
+	expectedVal[0] =  33.74;
+
+	printf("Testing v3_angle with negative Vectors\n");
+	actualVal[0] = v3_angle(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
+	
+	// testing Angle zero values
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[2] = -3.3;
+
+	pointTwo[0] = -5.5;
+	pointTwo[1] = -4.4;
+	pointTwo[2] = -3.3;
+	 
+	expectedVal[0] = 0;
+
+	printf("Testing v3_angle with the same vectors\n");
+	actualVal[0] = v3_angle(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
+	
+
+	// testing quick Angle positive value
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 2.2;
+	pointTwo[1] = 1.3;
+	pointTwo[2] = 8.8;
+	 
+	expectedVal[0] = 48.89;
+
+	printf("Testing v3_angle_quick with postive angle\n");
+	actualVal[0] = v3_angle_quick(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
+
+	// testing quick Angle negative value
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[2] = -3.3;
+
+	pointTwo[0] = -2.2;
+	pointTwo[1] = -4.4;
+	pointTwo[2] = -6.6;
+	 
+	expectedVal[0] =  33.74;
+
+	printf("Testing v3_angle_quick with negative angle\n");
+	actualVal[0] = v3_angle_quick(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
+	// testing quick Angle zero value
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[2] = -3.3;
+
+	pointTwo[0] = -5.5;
+	pointTwo[1] = -4.4;
+	pointTwo[2] = -3.3;
+	 
+	expectedVal[0] = 0;
+
+	printf("Testing v3_angle_quick with the same vectors\n");
+	actualVal[0] = v3_angle_quick(pointOne, pointTwo);
+	test_single_value(expectedVal, actualVal, 0);
 
 	printf( "===============================\n" );
 	printf( "Testing Reflect, Length, and Normalize\n");
 	printf( "===============================\n\n" );
 
+	// REFLECT ----------------------------------------
+	// positive vector with unit normal 
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 1;
+	pointTwo[1] = 1;
+	pointTwo[2] = 1;
+	 
+	expectedVal[0] = -1;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_reflect with positive vector and unit vector normal\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(expectedVal, actualVal);
+
+	// negative vector with unit normal
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 1;
+	pointTwo[1] = 1;
+	pointTwo[2] = 1;
+	 
+	expectedVal[0] = -1;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_reflect with negative vector and unit vector normal\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(expectedVal, actualVal);
+
+	// vector with zero normal
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 1;
+	pointTwo[1] = 1;
+	pointTwo[2] = 1;
+	 
+	expectedVal[0] = -1;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_reflect with positive vector and zero vector normal\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(expectedVal, actualVal);
+
+	// unit vector with positive normal
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 1;
+	pointTwo[1] = 1;
+	pointTwo[2] = 1;
+	 
+	expectedVal[0] = -1;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_reflect with unit vector and positive vector normal\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(expectedVal, actualVal);
 	
+	// unit vector with negative normal
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[2] = 3.3;
+
+	pointTwo[0] = 1;
+	pointTwo[1] = 1;
+	pointTwo[2] = 1;
+	 
+	expectedVal[0] = -1;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_reflect with unit vector and negative vector normal\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(expectedVal, actualVal);
+
+
+	// LENGTH -----------------------------------------
+	// positive vector
+	pointOne[0] = 4.0;
+	pointOne[1] = 5.0;
+	pointOne[2] = 20.0;
+
+	expectedVal[0] = 21.0;
+
+	printf("Testing v3_length with a positive vector\n");
+	actualVal[0] = v3_length(pointOne);
+	test_single_value(expectedVal, actualVal, 0);
+
+	// negative vector
+	pointOne[0] = -2.0;
+	pointOne[1] = -4.0;
+	pointOne[2] = -4.0;
+
+	expectedVal[0] = 6.0;
+
+	printf("Testing v3_length with a negative vector\n");
+	actualVal[0] = v3_length(pointOne);
+	test_single_value(expectedVal, actualVal, 0);
+
+	// fractional vector
+	pointOne[0] = 1.2;
+	pointOne[1] = 2.4;
+	pointOne[2] = 3.4;
+
+	expectedVal[0] = 4.331;
+
+	printf("Testing v3_length with a fractional vector\n");
+	actualVal[0] = v3_length(pointOne);
+	test_single_value(expectedVal, actualVal, 0);
+
+	// zero vector
+	pointOne[0] = 0.0;
+	pointOne[1] = 0.0;
+	pointOne[2] = 0.0;
+
+	expectedVal[0] = 0.0;
+
+	printf("Testing v3_length with the 0 vector\n");
+	actualVal[0] = v3_length(pointOne);
+	test_single_value(expectedVal, actualVal, 0);
+
+	// NORMALIZE --------------------------------------
 	
 	
 
@@ -458,6 +674,20 @@ void test_floating_vals(float *expectedVal, float *actualVal){
 		printf("TEST PASSED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
 		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
+	}
+
+
+}
+
+void test_single_value(float *expectedVal, float *actualVal, int index){
+	if(! (fabs(expectedVal[0] - actualVal[0]) <= 0.001)){
+		printf("#### TEST FAILED\n");
+		printf("\t Expected Val: %lf\n", expectedVal[index]);
+		printf("\t  Actual Val: %lf\n\n", actualVal[index]);
+	}else{
+		printf("TEST PASSED\n");
+		printf("\t Expected Val: %lf\n", expectedVal[index]);
+		printf("\t  Actual Val: %lf\n\n", actualVal[index]);
 	}
 
 
