@@ -140,7 +140,7 @@ float v3_length(float *a)
 
 	index2Power = a[2] * a[2];
 
-    return fabs(sqrt( index0Power + index1Power + index2Power )); //stub
+    return fabs(sqrt( index0Power + index1Power + index2Power ));
 }
 
 // Function Name: v3_normalize
