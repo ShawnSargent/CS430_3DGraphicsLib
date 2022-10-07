@@ -9,16 +9,29 @@ void v3_from_points(float *dst, float *a, float *b)
 }
 
 // Function Name: v3_add
-// Function Purpose: 
+// Function Purpose: Give some
 void v3_add(float *dst, float *a, float *b)
 {
+	int index = 0;
+
+	for(index = 0; index < 3; index++)
+	{
+		dst[index] = a[index] + b[index];
+	}	
 
 }
 
 // Function Name: v3_subtract
-// Function Purpose: 
+// Function Purpose: Take some
 void v3_subtract(float *dst, float *a, float *b)
 {
+
+	int index = 0;
+
+	for(index = 0; index < 3; index++)
+	{
+		dst[index] = a[index] - b[index];
+	}	
 
 }
 
@@ -26,7 +39,16 @@ void v3_subtract(float *dst, float *a, float *b)
 // Function Purpose: 
 float v3_dot_product(float *a, float *b)
 {
+	int index = 0;
 
+	float dot_product = 0.0;
+
+	for(index = 0; index < 3; index++)
+	{
+		dot_product = dot_product + (a[index] * b[index]);
+	}
+
+	return dot_product;
 }
 
 // Function Name: v3_cross_product
