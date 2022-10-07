@@ -241,18 +241,45 @@ int main()
 	pointOne[1] = 2.2;
 	pointOne[3] = 3.3;
 
-	pointTwo[0] = 3.3;
-	pointTwo[1] = 6.6;
-	pointTwo[3] = 4.4;
+	pointTwo[0] = -3.3;
+	pointTwo[1] = -6.6;
+	pointTwo[3] = -4.4;
 	 
-	expectedVal[0] = 0.0; // change me
+	expectedVal[0] = -32.67;
 
 	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
 	actualVal[0] = v3_dot_product(pointOne, pointTwo);
 	test_floating_vals(actualVal, expectedVal);
 
 	// Testing Dot with one negative one positive
+	pointOne[0] = -5.5;
+	pointOne[1] = -2.2;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = 7.7;
+	pointTwo[1] = 6.6;
+	pointTwo[3] = 4.4;
+	 
+	expectedVal[0] = -71.39;
+
+	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
+
 	// Testing Dot with negative values
+	pointOne[0] = -1.1;
+	pointOne[1] = -2.2;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = -3.3;
+	pointTwo[1] = -6.6;
+	pointTwo[3] = -4.4;
+	 
+	expectedVal[0] = 32.67;
+
+	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
 
 	// Testing Cross with positive values
 	// Testing Cross with one positive one negative
