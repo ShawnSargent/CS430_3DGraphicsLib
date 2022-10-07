@@ -1,4 +1,5 @@
 // Header Files
+#include <stdio.h>
 #include "v3math.h"
 
 // Function Name: v3_from_points
