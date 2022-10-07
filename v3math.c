@@ -86,7 +86,7 @@ void v3_scale(float *dst, float s)
 }
 
 // Function Name: v3_angle
-// Function Purpose: 
+// Function Purpose: Calculate angle between a and b
 float v3_angle(float *a, float *b)
 {
 	float angleBetween = 0.0;
@@ -95,21 +95,27 @@ float v3_angle(float *a, float *b)
 }
 
 // Function Name: v3_angle_quick
-// Function Purpose: 
+// Function Purpose: Calculate angle between a and b w/o cos^-1
 float v3_angle_quick(float *a, float *b)
 {
     return 0.0; //stub
 }
 
 // Function Name: v3_reflect
-// Function Purpose: 
+// Function Purpose: Reflect the vector
 void v3_reflect(float *dst, float *v, float *n)
 {
+
+	dst[0] = v[0] - 2 * (v3_dot_product(v,n) * n[0]);
+
+	dst[1] = v[1] - 2 * (v3_dot_product(v,n) * n[1]);
+
+	dst[2] = v[2] - 2 * (v3_dot_product(v,n) * n[2]);
 
 }
 
 // Function Name: v3_length
-// Function Purpose:
+// Function Purpose: Calculate the vectors magnitude
 float v3_length(float *a)
 {
 	float index0Power = 0.0;
@@ -128,8 +134,10 @@ float v3_length(float *a)
 }
 
 // Function Name: v3_normalize
-// Function Purpose: 
+// Function Purpose: Find surface normals
 void v3_normalize(float *dst, float *a)
 {
+
+// Unable to complete
 
 }

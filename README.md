@@ -11,3 +11,5 @@ After making, run using: "./v3test"
 # Known Issues
 
 Strictly computes v3 vectors and does not work for vectors of size != v3
+
+Does not compute v3_normalize
