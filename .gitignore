@@ -3,3 +3,6 @@
 
 # ignore all executables
 *.exe
+
+# ignore txt files
+*.txt

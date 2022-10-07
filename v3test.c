@@ -1,26 +1,29 @@
 // Header Files
+#include <stdio.h>
 #include "v3math.h"
 
 // Function Prototypes
 bool v3_equals(float *a, float *b, float tolerance);
 
+void test_floating_vals(float *expectedVal, float *actualVal);
+
 
 int main()
 {
-
+	printf( "===============================\n" );
 	printf( "3D Math Library Testing Program\n\n" );
 	printf( "===============================\n\n" );
 
-	printf( "Testing Vector from points function\n\n");
 	printf( "===============================\n" );
+	printf( "Testing Vector from points function\n");
+	printf( "===============================\n\n" );
 
 	// testing Both positive
 	float pointOne[3] = {1.1, 2.1, 6.1};
 	float pointTwo[3] = {3.3, 4.2, 12.6};
 	float expectedVal[3] = {2.2, 2.1, 6.5};
 	float actualVal[3];
-
-	printf("Testing v3_from_points with positive inputs\n");
+	printf("%lf, %lf, %lf\n", pointOne[0], pointOne[1], pointOne[2]);
 	v3_from_points(actualVal, pointOne, pointTwo);
 	test_floating_vals(expectedVal, actualVal);
 
@@ -71,9 +74,9 @@ int main()
 	v3_from_points(actualVal, pointOne, pointTwo);
 	test_floating_vals(actualVal, expectedVal);
 
-
-	printf( "Testing Addition and Subtraction functions\n\n");
 	printf( "===============================\n" );
+	printf( "Testing Addition and Subtraction functions\n");
+	printf( "===============================\n\n" );
 	
 	// Testing Addition both positive
 	pointOne[0] = 1.1;
@@ -211,9 +214,9 @@ int main()
 	v3_subtract(actualVal, pointOne, pointTwo);
 	test_floating_vals(actualVal, expectedVal);
 
-
-	printf( "Testing dot and cross product functions\n\n");
 	printf( "===============================\n" );
+	printf( "Testing dot and cross product functions\n");
+	printf( "===============================\n\n" );
 
 	// Testing Dot with positive values
 	pointOne[0] = 1.1;
@@ -282,26 +285,86 @@ int main()
 	test_floating_vals(actualVal, expectedVal);
 
 	// Testing Cross with positive values
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[3] = 3.3;
+
+	pointTwo[0] =  2.2;
+	pointTwo[1] =  1.1;
+	pointTwo[3] =  0.0;
+	 
+	expectedVal[0] = -3.63;
+	expectedVal[1] = 7.26;
+	expectedVal[2] = -3.63;
+
+	printf("Testing v3_cross_product with input1 = positive, input 2 = negative\n");
+	v3_cross_product(actualVal, pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
 	// Testing Cross with one positive one negative
+	pointOne[0] = 5.5;
+	pointOne[1] = 4.4;
+	pointOne[3] = 3.3;
+
+	pointTwo[0] = -3.3;
+	pointTwo[1] = -2.2;
+	pointTwo[3] = -6.6;
+	 
+	expectedVal[0] = -21.76;
+	expectedVal[1] = 25.41;
+	expectedVal[2] = 2.42;
+
+	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
+	v3_add(actualVal, pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
 	// Testing Cross with one negative one positive
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = 4.3;
+	pointTwo[1] = 2.2;
+	pointTwo[3] = 6.6;
+	 
+	expectedVal[0] = -21.76;
+	expectedVal[1] = 22.11;
+	expectedVal[2] = 6.82;
+
+	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
+	v3_add(actualVal, pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
 	// Testing Cross with negative values
+	pointOne[0] = -5.5;
+	pointOne[1] = -4.4;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = -1.1;
+	pointTwo[1] = -2.2;
+	pointTwo[3] = -6.6;
+	 
+	expectedVal[0] = 21.78;
+	expectedVal[1] = -32.67;
+	expectedVal[2] = 7.26;
+
+	printf("Testing v3_add with input1 = positive, input 2 = negative\n");
+	v3_add(actualVal, pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
 
 
-
-	printf( "Testing scale\n\n");
 	printf( "===============================\n" );
+	printf( "Testing scale\n");
+	printf( "===============================\n\n" );
 
 	// positive scale
 	// negative scale
 	// 0 scale
-
-	printf( "Testing Angle and quick Angle\n\n");
+	printf( "===============================\n" );
+	printf( "Testing Angle and quick Angle\n");
 	printf( "===============================\n" );
 
 
-
-	printf( "Testing Reflect, Length, and Normalize\n\n");
 	printf( "===============================\n" );
+	printf( "Testing Reflect, Length, and Normalize\n");
+	printf( "===============================\n\n" );
 
 	
 	
