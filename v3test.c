@@ -215,7 +215,76 @@ int main()
 	printf( "Testing dot and cross product functions\n\n");
 	printf( "===============================\n" );
 
-	// dot 
+	// Testing Dot with positive values
+	pointOne[0] = 1.1;
+	pointOne[1] = 2.2;
+	pointOne[3] = 3.3;
+
+	pointTwo[0] = 3.3;
+	pointTwo[1] = 4.4;
+	pointTwo[3] = 5.5;
+	 
+	expectedVal[0] = 31.46;
+	expectedVal[1] = 0.0;
+	expectedVal[2] = 0.0;
+
+	// setting to 0 because it returns scalar
+	actualVal[1] = 0.0;
+	actualVal[2] = 0.0;
+
+	printf("Testing v3_dot_product with with positive inputs\n");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
+
+	// Testing Dot with one positive one negative
+	pointOne[0] = 1.1;
+	pointOne[1] = 2.2;
+	pointOne[3] = 3.3;
+
+	pointTwo[0] = -3.3;
+	pointTwo[1] = -6.6;
+	pointTwo[3] = -4.4;
+	 
+	expectedVal[0] = -32.67;
+
+	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
+
+	// Testing Dot with one negative one positive
+	pointOne[0] = -5.5;
+	pointOne[1] = -2.2;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = 7.7;
+	pointTwo[1] = 6.6;
+	pointTwo[3] = 4.4;
+	 
+	expectedVal[0] = -71.39;
+
+	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
+
+	// Testing Dot with negative values
+	pointOne[0] = -1.1;
+	pointOne[1] = -2.2;
+	pointOne[3] = -3.3;
+
+	pointTwo[0] = -3.3;
+	pointTwo[1] = -6.6;
+	pointTwo[3] = -4.4;
+	 
+	expectedVal[0] = 32.67;
+
+	printf("Testing v3_dot_product input1 = positive, input 2 = negative");
+	actualVal[0] = v3_dot_product(pointOne, pointTwo);
+	test_floating_vals(actualVal, expectedVal);
+
+	// Testing Cross with positive values
+	// Testing Cross with one positive one negative
+	// Testing Cross with one negative one positive
+	// Testing Cross with negative values
 
 
 
@@ -263,29 +332,12 @@ void test_floating_vals(float *expectedVal, float *actualVal){
 	if(!v3_equals(expectedVal, actualVal, 0.001)){
 		printf("#### TEST FAILED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
-		printf("\t  Actual Val: %lf, %lf, %lf \n", actualVal[0], actualVal[1], actualVal[2]);
+		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
 	}else{
 		printf("TEST PASSED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
-		printf("\t  Actual Val: %lf, %lf, %lf \n", actualVal[0], actualVal[1], actualVal[2]);
+		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
 	}
 
-
-}
-
-
-bool test_add_and_subtract(){
-	
-}
-bool test_dot_and_cross(float* expectedVal, float* actualVal, int* test){
-
-}
-bool test_scale(float* expectedVal, float* actualVal, int* test){
-
-}
-bool test_angel(float* expectedVal, float* actualVal, int* test){
-
-}
-bool test_reflect_len_normal(float* expectedVal, float* actualVal, int* test){
 
 }
