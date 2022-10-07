@@ -3,14 +3,21 @@
 #include "v3math.h"
 
 // Function Name: v3_from_points
-// Function Purpose: 
+// Function Purpose: Calculate v3 vector from two 3 dimensional vectors
 void v3_from_points(float *dst, float *a, float *b)
 {
+
+	int index = 0;
+
+	for(index = 0; index < 3; index++)
+	{
+		dst[index] = b[index] - a[index];
+	}	
 
 }
 
 // Function Name: v3_add
-// Function Purpose: Give some
+// Function Purpose: Give sum
 void v3_add(float *dst, float *a, float *b)
 {
 	int index = 0;
@@ -23,7 +30,7 @@ void v3_add(float *dst, float *a, float *b)
 }
 
 // Function Name: v3_subtract
-// Function Purpose: Take some
+// Function Purpose: Take difference
 void v3_subtract(float *dst, float *a, float *b)
 {
 
@@ -37,7 +44,7 @@ void v3_subtract(float *dst, float *a, float *b)
 }
 
 // Function Name: v3_dot_product
-// Function Purpose: 
+// Function Purpose: Calculate dot product
 float v3_dot_product(float *a, float *b)
 {
 	int index = 0;
@@ -53,15 +60,20 @@ float v3_dot_product(float *a, float *b)
 }
 
 // Function Name: v3_cross_product
-// Function Purpose: 
+// Function Purpose: Calculate cross product
 void v3_cross_product(float *dst, float *a, float *b)
 {
+	// It is assumed that we will strictly be dealing with v3 vectors 
+	// so indicies are reached using hard-coded integers
+	dst[0] = (a[1] * b[2]) - (a[2] * b[1]);
 
+	dst[1] = (a[2] * b[0]) - (a[0] * b[2]);
 
+	dst[2] = (a[0] * b[1]) - (a[1] * b[0]);
 }
 
 // Function Name: v3_scale
-// Function Purpose: 
+// Function Purpose: Scales an input vector by s 
 void v3_scale(float *dst, float s)
 {
 	int index = 0;
@@ -77,7 +89,9 @@ void v3_scale(float *dst, float s)
 // Function Purpose: 
 float v3_angle(float *a, float *b)
 {
-    return 0.0; //stub
+	float angleBetween = 0.0;
+
+    return angleBetween; //stub
 }
 
 // Function Name: v3_angle_quick
@@ -98,7 +112,19 @@ void v3_reflect(float *dst, float *v, float *n)
 // Function Purpose:
 float v3_length(float *a)
 {
-    return 0.0; //stub
+	float index0Power = 0.0;
+
+	float index1Power = 0.0;
+
+	float index2Power = 0.0;
+
+	index0Power = a[0] * a[0];
+
+	index1Power = a[1] * a[1];
+
+	index2Power = a[2] * a[2];
+
+    return fabs(sqrt( index0Power + index1Power + index2Power )); //stub
 }
 
 // Function Name: v3_normalize
