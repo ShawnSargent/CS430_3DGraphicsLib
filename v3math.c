@@ -90,15 +90,22 @@ void v3_scale(float *dst, float s)
 float v3_angle(float *a, float *b)
 {
     float dotProduct = v3_dot_product(a,b);
+
     float MagProduct  = v3_length(a) * v3_length(b);
+
     float radianConvert = 180 / 3.141592;
+
     float angleBetween = 0;
-    if(MagProduct > 0){
+
+    if(MagProduct > 0)
+	{
 	    angleBetween = acos(dotProduct / MagProduct) * radianConvert;
-    }else{
+    }
+	else
+	{
         angleBetween = 0;
     }
-    return angleBetween; //stub
+    return angleBetween;
 }
 
 // Function Name: v3_angle_quick
