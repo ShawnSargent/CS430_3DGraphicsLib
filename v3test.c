@@ -407,11 +407,18 @@ int main()
 	v3_scale(actualVal, 0.0);
 	test_floating_vals(expectedVal, actualVal);
 
-	
+
 	printf( "===============================\n" );
 	printf( "Testing Angle and quick Angle\n");
 	printf( "===============================\n" );
 
+	// testing Angle positive values
+	// testing Angle negative values
+	// testing Angle zero values
+
+	// testing quick Angle positive values
+	// testing quick Angle negative values
+	// testing quick Angle zero values
 
 	printf( "===============================\n" );
 	printf( "Testing Reflect, Length, and Normalize\n");
