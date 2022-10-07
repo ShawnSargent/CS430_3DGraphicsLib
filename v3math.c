@@ -56,12 +56,19 @@ float v3_dot_product(float *a, float *b)
 void v3_cross_product(float *dst, float *a, float *b)
 {
 
+
 }
 
 // Function Name: v3_scale
 // Function Purpose: 
 void v3_scale(float *dst, float s)
 {
+	int index = 0;
+
+	for(index = 0; index < 3; index++)
+	{
+		dst[index] =  s * (dst[index]);
+	}
 
 }
 
