@@ -69,14 +69,14 @@ void v3_scale(float *dst, float s)
 // Function Purpose: 
 float v3_angle(float *a, float *b)
 {
-
+    return 0.0; //stub
 }
 
 // Function Name: v3_angle_quick
 // Function Purpose: 
 float v3_angle_quick(float *a, float *b)
 {
-
+    return 0.0; //stub
 }
 
 // Function Name: v3_reflect
@@ -90,7 +90,7 @@ void v3_reflect(float *dst, float *v, float *n)
 // Function Purpose:
 float v3_length(float *a)
 {
-
+    return 0.0; //stub
 }
 
 // Function Name: v3_normalize

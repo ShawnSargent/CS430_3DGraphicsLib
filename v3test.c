@@ -332,11 +332,11 @@ void test_floating_vals(float *expectedVal, float *actualVal){
 	if(!v3_equals(expectedVal, actualVal, 0.001)){
 		printf("#### TEST FAILED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
-		printf("\t  Actual Val: %lf, %lf, %lf \n", actualVal[0], actualVal[1], actualVal[2]);
+		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
 	}else{
 		printf("TEST PASSED\n");
 		printf("\t Expected Val: %lf, %lf, %lf \n", expectedVal[0], expectedVal[1], expectedVal[2]);
-		printf("\t  Actual Val: %lf, %lf, %lf \n", actualVal[0], actualVal[1], actualVal[2]);
+		printf("\t  Actual Val: %lf, %lf, %lf \n\n", actualVal[0], actualVal[1], actualVal[2]);
 	}
 
 
